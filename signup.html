@@ -10,10 +10,12 @@ Project #3: Conways Game of Life
     <meta charset="UTF-8">
     <title>Sign Up Page</title>
     <script src="auth.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
 </head>
 
 <body>
-    <h1>Sign Up</h1>
+    <h1>SIGN UP</h1>
     <form id="signupForm">
         <table>
             <tr>
@@ -36,11 +38,10 @@ Project #3: Conways Game of Life
                 <td></td>
                 <td>
                     <!---JavaScript to check all fields have something-->
-                    <input type="button" value="Sign Up" onclick="checkFields()" />
+                    <input type="button" id="button" value="Sign Up" onclick="checkFields()" />
                 </td>
             </tr>
         </table>
-        <div id="validationPass"></div>
     </form>
 
 </body>

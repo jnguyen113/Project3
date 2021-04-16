@@ -10,25 +10,29 @@ Project #3: Conways Game of Life
     <meta charset="UTF-8">
     <title>Login Page</title>
     <script src="auth.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
 
 </head>
 
 <body>
-    <h1>Login</h1>
+    <h1>LOGIN</h1>
     <form id="loginForm">
         <table>
             <label id="loginErr" class="error"></label><br>
 
             <tr>
-                <td>Create Username: </td>
+                <td>Enter Username: </td>
                 <td>
                     <label id="loginUserErr" class="error"></label><br>
 
                     <input type="text" id="loginUser" placeholder="Ex: Conway123" />
                 </td>
             </tr>
+
+
             <tr>
-                <td>Create Password: </td>
+                <td>Enter Password: </td>
                 <td>
                     <label id="loginPassErr" class="error"></label><br>
 
@@ -39,7 +43,7 @@ Project #3: Conways Game of Life
                 <td></td>
                 <td>
                     <!---JavaScript to authenticate user login-->
-                    <input type="button" value="Login" onclick="authenticate()" />
+                    <input type="button" id="button" value="Login" onclick="authenticate()" />
                 </td>
             </tr>
         </table>
