@@ -1,7 +1,7 @@
 /*
- * File: conway.js
- * Project: htdoc
- * File Created: Tuesday, 13th April 2021 1:49:45 pm
+ * File: conway_grid.js
+ * Project: Project3
+ * File Created: Friday, 16th April 2021 4:36:36 pm
  * Author: Hayden Kowalchuk
  * -----
  * Copyright (c) 2021 Hayden Kowalchuk, Hayden Kowalchuk
@@ -10,7 +10,8 @@
 
 
 /* Globals */
-var board_size = 64;
+let htmlStyles = window.getComputedStyle(document.querySelector("html"));
+let board_size = parseInt(htmlStyles.getPropertyValue("--rowNum"));
 var allowed_to_play = false;
 var timer_func = 0;
 var fps = 0;
@@ -208,22 +209,20 @@ function advance_gen23() {
 }
 
 function create_game_board() {
-  let table = document.querySelector("table");
+  var table = document.getElementById("grid");
   table.onmousedown = setmousedown;
   table.onmouseup = setmouseup;
 
   /* Build html table game board of size NxN */
   for (let row = 0; row < board_size; row++) {
-    let cur_row = table.insertRow();
     for (let col = 0; col < board_size; col++) {
-
-      let cell = cur_row.insertCell();
       let el = document.createElement('div');
       el.classList.add("cell");
       el.onmousedown = cell_click;
       el.onmouseover = cell_over;
       el.id = row + "_" + col;
-      cell.appendChild(el);
+      el.innerHTML = "&nbsp;";
+      table.appendChild(el);
     }
   }
 }
@@ -336,6 +335,7 @@ function conway_palette(flag) {
 }
 
 function conway_dump() {
+  /*
   let output = document.getElementById("save");
   let lines = 0;
   output.value = "";
@@ -348,6 +348,7 @@ function conway_dump() {
     }
   }
   output.rows = lines + 2;
+  */
 }
 
 function setup_conway() {
@@ -356,7 +357,7 @@ function setup_conway() {
   conway_reset();
   conway_draw();
 
-  document.querySelector("table").addEventListener("contextmenu", function(e) {
+  document.getElementById("grid").addEventListener("contextmenu", function(e) {
     e.preventDefault();
   }, false);
 }

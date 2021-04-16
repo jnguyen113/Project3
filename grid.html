@@ -1,5 +1,5 @@
 <!--
-Hayden Kowalchuk, Johnathan Nguyen
+Hayden Kowalchuk
 WEB PROGRAMMING XLS Group N9 Spring Semester 2021 - CO.090.CSC.CSC4370.XLS.N9.20214
 Project #3: Conways Game of Life
 -->
@@ -8,27 +8,47 @@ Project #3: Conways Game of Life
 
 <head>
   <title>Conway's Game of Life</title>
+  <meta name="viewport" content="width=device_display, initial-scale=1.0" />
   <style>
     .center {
       margin: auto;
       width: 50%;
       text-align: center;
     }
-
+    
     .on {
+      /* background-color: #000000; */
       background-color: #ffffff !important;
       mix-blend-mode: multiply;
     }
-
+    
     .off {
       background-color: #000000;
+      /* background-color: #ffffff; */
     }
-
+    
+    .bkg {
+      /* background-color: #f6f6f6; */
+      /* background-color: #000000; */
+    }
+    
     .cell:hover {
+      /* background-color: #000000; */
       background-color: #ffffff !important;
       mix-blend-mode: normal;
     }
-/*
+    
+     :root {
+      --rowNum: 64;
+      --colNum: 64;
+    }
+    
+    .grid {
+      display: grid;
+      /* define the number of grid columns */
+      grid-template-columns: repeat(var(--rowNum), 1fr);
+    }
+    /*
 .board {
     background-color: #000000;
     border-color: #000000;
@@ -46,15 +66,15 @@ Project #3: Conways Game of Life
     filter: drop-shadow(0px 0px 10px white) invert(100%);
 }
     */
-
+    
     .cell {
-      width: 4px;
-      height: 4px;
+      width: 8px;
+      height: 8px;
       display: block;
       background-color: #000000;
     }
-
-    #board {
+    
+    .board {
       background-color: #000000;
       border-color: #000000;
       border-width: 2px;
@@ -64,18 +84,13 @@ Project #3: Conways Game of Life
       background-image: url(overlay.png);
       background-size: cover;
     }
-
-    #board tr,
-    #board td {
-      padding: 0;
-    }
-
+    
     span {
       width: 30px;
       display: inline-block;
     }
   </style>
-  <script src="conway.js"></script>
+  <script src="conway_grid.js"></script>
 </head>
 
 <body onload="setup_conway()">
@@ -96,7 +111,6 @@ Project #3: Conways Game of Life
       <li>Right Mouse click on the grid turns cells dead</li>
       <li>Middle Mouse click on the grid toggles cell state</li>
     </ul>
-
     <button id="btn_clear" onclick="conway_clear()">Clear</button>
     <button id="btn_reset" onclick="_reset_xor()">Reset(xor)</button>
     <button id="btn_reset" onclick="_reset_osci()">Reset(osci)</button>
@@ -116,16 +130,12 @@ Project #3: Conways Game of Life
     <span style="background-color:rgba(70,130,180,0.5)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.6)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.7)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.8)">&nbsp;</span>
     <span style="background-color:rgba(70,130,180,0.9)">&nbsp;</span><span style="background-color:rgba(70,130,180,1.0)">&nbsp;</span>
     <br>
-    <button id="btn_save" onclick="conway_dump()">Save Scene</button>
-    <br><br>
+    <!-- <button id="btn_save" onclick="conway_dump()">Save Scene</button>
+    <br>--> <br>
     <hr>
   </section>
   <section>
-    <table id="board" class="bkg">
-    </table>
-    <div style="float:left; margin-left:1em;">
-      <textarea id="save"></textarea>
-    </div>
+    <div class="grid board" id="grid"></div>
   </section>
 </body>
 
