@@ -16,37 +16,63 @@ Project #3: Conways Game of Life
     }
 
     .on {
-      background-color: #000000;
+      background-color: #ffffff !important;
+      mix-blend-mode: multiply;
     }
 
     .off {
-      background-color: #ffffff;
-    }
-
-    .bkg {
-      background-color: #f6f6f6;
-    }
-
-    .cell:hover {
       background-color: #000000;
     }
 
+    .cell:hover {
+      background-color: #ffffff !important;
+      mix-blend-mode: normal;
+    }
+/*
+.board {
+    background-color: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    border-spacing: 0;
+    float: left;
+    background-image: url(overlay.png);
+    background-size: cover;
+    filter: blur(1px) contrast(200%);
+    }
+
+.on {
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0px 0px 10px white) invert(100%);
+}
+    */
+
     .cell {
-      width: 10px;
-      height: 10px;
+      width: 4px;
+      height: 4px;
       display: block;
+      background-color: #000000;
     }
 
     #board {
+      background-color: #000000;
       border-color: #000000;
       border-width: 2px;
       border-style: solid;
       border-spacing: 0;
+      float: left;
+      background-image: url(overlay.png);
+      background-size: cover;
     }
 
     #board tr,
     #board td {
       padding: 0;
+    }
+
+    span {
+      width: 30px;
+      display: inline-block;
     }
   </style>
   <script src="conway.js"></script>
@@ -74,6 +100,8 @@ Project #3: Conways Game of Life
     <button id="btn_reset" onclick="_reset_xor()">Reset(xor)</button>
     <button id="btn_reset" onclick="_reset_osci()">Reset(osci)</button>
     <button id="btn_reset" onclick="_reset_glider()">Reset(glider)</button>
+    <button id="btn_reset" onclick="_reset_monogram()">Reset(monogram)</button>
+    <br>
     <button id="btn_adv1" onclick="advance_gen1()">Advance 1 step</button>
     <button id="btn_adv23" onclick="advance_gen23()">Advance 23 steps</button>
     <button id="btn_anim1" onclick="conway_animate(1)">Animate(1)</button>
@@ -81,12 +109,22 @@ Project #3: Conways Game of Life
     <button id="btn_anim15" onclick="conway_animate(15)">Animate(15)</button>
     <button id="btn_anim30" onclick="conway_animate(30)">Animate(30)</button>
     <button id="btn_stop" onclick="conway_stop()">Stop</button>
+    <br>
+    <button id="btn_1bit" onclick="conway_palette(false)">Use 1bit</button>
+    <button id="btn_pal" onclick="conway_palette(true)">Use Palette</button>
+    <span style="background-color:rgba(70,130,180,0.5)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.6)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.7)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.8)">&nbsp;</span>
+    <span style="background-color:rgba(70,130,180,0.9)">&nbsp;</span><span style="background-color:rgba(70,130,180,1.0)">&nbsp;</span>
+    <br>
+    <button id="btn_save" onclick="conway_dump()">Save Scene</button>
     <br><br>
     <hr>
-    <section>
-      <table id="board" class="bkg">
-      </table>
-    </section>
+  </section>
+  <section>
+    <table id="board" class="bkg">
+    </table>
+    <div style="float:left; margin-left:1em;">
+      <textarea id="save"></textarea>
+    </div>
   </section>
 </body>
 
