@@ -1,0 +1,143 @@
+<!--
+Hayden Kowalchuk
+WEB PROGRAMMING XLS Group N9 Spring Semester 2021 - CO.090.CSC.CSC4370.XLS.N9.20214
+Project #3: Conways Game of Life
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Conway's Game of Life</title>
+  <meta name="viewport" content="width=device_display, initial-scale=1.0" />
+  <style>
+    .center {
+      margin: auto;
+      width: 50%;
+      text-align: center;
+    }
+    
+    .on {
+      /* background-color: #000000; */
+      background-color: #ffffff !important;
+      mix-blend-mode: multiply;
+    }
+    
+    .off {
+      background-color: #000000;
+      /* background-color: #ffffff; */
+    }
+    
+    .bkg {
+      /* background-color: #f6f6f6; */
+      /* background-color: #000000; */
+    }
+    
+    .cell:hover {
+      /* background-color: #000000; */
+      background-color: #ffffff !important;
+      mix-blend-mode: normal;
+    }
+    
+     :root {
+      --rowNum: 64;
+      --colNum: 64;
+    }
+    
+    .grid {
+      display: grid;
+      /* define the number of grid columns */
+      grid-template-columns: repeat(var(--rowNum), 1fr);
+    }
+    /*
+.board {
+    background-color: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    border-spacing: 0;
+    float: left;
+    background-image: url(overlay.png);
+    background-size: cover;
+    filter: blur(1px) contrast(200%);
+    }
+
+.on {
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0px 0px 10px white) invert(100%);
+}
+    */
+    
+    .cell {
+      width: 8px;
+      height: 8px;
+      display: block;
+      background-color: #000000;
+    }
+    
+    .board {
+      background-color: #000000;
+      border-color: #000000;
+      border-width: 2px;
+      border-style: solid;
+      border-spacing: 0;
+      float: left;
+      background-image: url(overlay.png);
+      background-size: cover;
+    }
+    
+    span {
+      width: 30px;
+      display: inline-block;
+    }
+  </style>
+  <script src="conway_grid.js"></script>
+</head>
+
+<body onload="setup_conway()">
+
+  <h1>Conways Game of Life</h1>
+  <section>
+    <h2></h2>
+    <h3>Rules</h3>
+    <ul>
+      <li>If a cell is alive, and 2 or 3 of it's neighbors are also alive, the cell remains alive.</li>
+      <li>If a cell is alive and it has more than 3 alive neighbors, it dies of overcrowding.</li>
+      <li>If a cell is alive and it has fewer than 2 alive neighbors, it dies of loneliness.</li>
+      <li>If a cell is dead and it has exactly 3 neighbors alive it becomes alive again.</li>
+    </ul>
+    <h3>Controls</h3>
+    <ul>
+      <li>Left Mouse click on the grid turns cells alive</li>
+      <li>Right Mouse click on the grid turns cells dead</li>
+      <li>Middle Mouse click on the grid toggles cell state</li>
+    </ul>
+    <button id="btn_clear" onclick="conway_clear()">Clear</button>
+    <button id="btn_reset" onclick="_reset_xor()">Reset(xor)</button>
+    <button id="btn_reset" onclick="_reset_osci()">Reset(osci)</button>
+    <button id="btn_reset" onclick="_reset_glider()">Reset(glider)</button>
+    <button id="btn_reset" onclick="_reset_monogram()">Reset(monogram)</button>
+    <br>
+    <button id="btn_adv1" onclick="advance_gen1()">Advance 1 step</button>
+    <button id="btn_adv23" onclick="advance_gen23()">Advance 23 steps</button>
+    <button id="btn_anim1" onclick="conway_animate(1)">Animate(1)</button>
+    <button id="btn_anim5" onclick="conway_animate(5)">Animate(5)</button>
+    <button id="btn_anim15" onclick="conway_animate(15)">Animate(15)</button>
+    <button id="btn_anim30" onclick="conway_animate(30)">Animate(30)</button>
+    <button id="btn_stop" onclick="conway_stop()">Stop</button>
+    <br>
+    <button id="btn_1bit" onclick="conway_palette(false)">Use 1bit</button>
+    <button id="btn_pal" onclick="conway_palette(true)">Use Palette</button>
+    <span style="background-color:rgba(70,130,180,0.5)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.6)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.7)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.8)">&nbsp;</span>
+    <span style="background-color:rgba(70,130,180,0.9)">&nbsp;</span><span style="background-color:rgba(70,130,180,1.0)">&nbsp;</span>
+    <br>
+    <!-- <button id="btn_save" onclick="conway_dump()">Save Scene</button>
+    <br>--> <br>
+    <hr>
+  </section>
+  <section>
+    <div class="grid board" id="grid"></div>
+  </section>
+</body>
+
+
+</html>
