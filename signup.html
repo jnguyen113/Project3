@@ -1,0 +1,48 @@
+<!--
+Johnathan Nguyen
+WEB PROGRAMMING 
+Project #3: Conways Game of Life
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Page</title>
+    <script src="auth.js"></script>
+</head>
+
+<body>
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+        <table>
+            <tr>
+                <td>Create Username: </td>
+                <td>
+                    <label id="signupUserErr" class="error"></label><br>
+
+                    <input type="text" id="signupUser" placeholder="Ex: Conway123" />
+                </td>
+            </tr>
+            <tr>
+                <td>Create Password: </td>
+                <td>
+                    <label id="signupPassErr" class="error"></label><br>
+
+                    <input type="text" id="signupPass" placeholder="Ex: Robert (a-z)" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <!---JavaScript to check all fields have something-->
+                    <input type="button" value="Sign Up" onclick="checkFields()" />
+                </td>
+            </tr>
+        </table>
+        <div id="validationPass"></div>
+    </form>
+
+</body>
+
+</html>
