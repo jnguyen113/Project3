@@ -1,0 +1,51 @@
+<!--
+Johnathan Nguyen
+WEB PROGRAMMING 
+Project #3: Conways Game of Life
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Page</title>
+    <script src="auth.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+
+<body>
+    <h1>SIGN UP</h1>
+    <form id="signupForm">
+        <table>
+            <tr>
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_t2bmqtrz.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px; margin-left: 150px;  margin-bottom: -90px; margin-top: -130px;"  loop  autoplay></lottie-player>
+                <td>Create Username: </td>
+                <td>
+                    <label id="signupUserErr" class="error"></label><br>
+
+                    <input type="text" id="signupUser" placeholder="Ex: Conway123" />
+                </td>
+            </tr>
+            <tr>
+                <td>Create Password: </td>
+                <td>
+                    <label id="signupPassErr" class="error"></label><br>
+
+                    <input type="text" id="signupPass" placeholder="Ex: Robert (a-z)" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <!---JavaScript to check all fields have something-->
+                    <input type="button" id="button" value="Sign Up" onclick="checkFields()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
