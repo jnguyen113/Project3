@@ -15,6 +15,12 @@ h1{
     margin-bottom: 50px;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: monospace, serif;
     /*
@@ -23,12 +29,13 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; */
+
     background: linear-gradient(53deg, #ffffff, #048ca3, #a916ec, #eed611);
     background-size: 800% 800%;
     -webkit-animation: gradient 7s ease infinite;
     -moz-animation: gradient 7s ease infinite;
     -o-animation: gradient 7s ease infinite;
-    animation: gradient 7s ease infinite;
+    animation: gradient 7s ease infinite; 
 }
 
 @-webkit-keyframes gradient {
@@ -90,16 +97,13 @@ button:hover{
 
 form{
   text-align: center;
-  display: inline-block;
   background: rgba(255, 255, 255, 0.295);
   border-radius: 1.5em;
   border: solid 1px rgba(153, 153, 153, 0.911);
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(255, 255, 255, 0.3);
-  display: inline-block;
   padding: 3em;
-  position: relative;
-  width: 700px;
-  margin-left: 550px;
+  width: 750px;
+  display: inline-block;
 }
 
 input {
@@ -125,3 +129,4 @@ td{
     font-weight: bold;
     color: red;
 }
+
