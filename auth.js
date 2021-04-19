@@ -1,10 +1,24 @@
 //Johnathan Nguyen
-// Defining a function to display error message RED TEXT 15 points
+
 
 var userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
 
 function printError(errID, displayMessage) {
     document.getElementById(errID).innerHTML = displayMessage;
+}
+
+function register(){
+    var signupUser = document.getElementById("signupUser").value;
+    var signupPass = document.getElementById("signupPass").value;
+    
+    var newUser = {
+        'username': signupUser,
+        'password': signupPass
+    }
+    
+    userInfo.push(newUser);
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    window.location.href = "login.html"
 }
 
 function checkFields() {
@@ -13,10 +27,6 @@ function checkFields() {
 
     var signupUser = document.getElementById("signupUser").value;
     var signupPass = document.getElementById("signupPass").value;
-    //alert message displaying errors
-
-    var regexNum = /^[0-9]*$/;
-    var regexAlpha = /^[A-Za-z]+$/;
 
     //Username isn't empty
     if (form.signupUser.value.length == 0) {
@@ -25,7 +35,6 @@ function checkFields() {
     }else {
         printError("signupUserErr", "");
     }
-
 
     //password isn't empty
     if (form.signupPass.value.length == 0) {
@@ -47,7 +56,6 @@ function checkFields() {
 			// alert user that the password is to short
             printError("signupPassErr", "Password is too short");
             error++;
-			
 		}
 	}
     //Error exist: alert user
@@ -60,27 +68,13 @@ function checkFields() {
     }
 }
 
-function register(){
-    var signupUser = document.getElementById("signupUser").value;
-    var signupPass = document.getElementById("signupPass").value;
-    
-    var newUser = {
-        'username': signupUser,
-        'password': signupPass
-    }
-    
 
-    userInfo.push(newUser);
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
-    window.location.href = "login.html"
-}
-
-//used https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage/55968743 to help with adding array of objects to local storage
+//used https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage/55968743 
+//to help with adding array of objects to local storage
 function authenticate(){
     var loginErr = document.getElementById('loginErr');
     var userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-    console.log(userInfo[1].username);
     var username = document.getElementById("loginUser").value;
     var password = document.getElementById("loginPass").value;
 
