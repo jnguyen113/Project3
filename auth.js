@@ -1,5 +1,12 @@
 //Johnathan Nguyen
 
+function signupClicked(){
+    window.location.href="signup.html";
+}
+
+function loginClicked(){
+    window.location.href="login.html";
+}
 
 var userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
 

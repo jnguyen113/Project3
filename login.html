@@ -1,47 +1,60 @@
-<title>Login Page</title>
+<!--
+Johnathan Nguyen
+WEB PROGRAMMING 
+Project #3: Conways Game of Life
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
     <script src="auth.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css">
-
-
 </head>
 
 <body>
     <h1 style="-webkit-text-stroke: 1px darkgray;">ENTER LOGIN</h1>
-    <div style ="margin: auto;width:75%;text-align:center">
-    <form id="loginForm">
-        <table>
+    <div style="margin: auto;width:75%;text-align:center">
+        <form id="loginForm">
             <label id="loginErr" class="error"></label><br>
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_q5pk6p1k.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; margin-left: 200px;"  loop  autoplay></lottie-player>
-            <tr>
-                <td>Enter Username: </td>
-                <td>
-                    <label id="loginUserErr" class="error"></label><br>
+            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_q5pk6p1k.json"
+                background="transparent" speed="1" style="width: 300px; height: 300px; margin-left: 200px;" loop
+                autoplay></lottie-player>
+            <table>
+                <tr>
+                    <td>Enter Username: </td>
+                    <td>
+                        <label id="loginUserErr" class="error"></label><br>
 
-                    <input type="text" id="loginUser" placeholder="Ex: Conway123" />
-                </td>
-            </tr>
+                        <input type="text" id="loginUser" placeholder="Ex: Conway123" />
+                    </td>
+                </tr>
 
 
-            <tr>
-                <td>Enter Password: </td>
-                <td>
-                    <label id="loginPassErr" class="error"></label><br>
+                <tr>
+                    <td>Enter Password: </td>
+                    <td>
+                        <label id="loginPassErr" class="error"></label><br>
 
-                    <input type="text" id="loginPass" placeholder="Ex: Robert (a-z)" />
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <!---JavaScript to authenticate user login-->
-                    <input style="cursor: pointer;" type="button" id="button" value="Login" onclick="authenticate()" />
-                </td>
-            </tr>
-        </table>
-        <div id="validationPass"></div>
-    </form>
-</div>
+                        <input type="text" id="loginPass" placeholder="Ex: Robert (a-z)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!---JavaScript to authenticate user login-->
+                        <input style="cursor: pointer;" type="button" id="button" value="Login"
+                            onclick="authenticate()" />
+                    </td>
+                </tr>
+            </table>
+            <div id="w3c">
+                <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
+                <a href=""><img src="images/css.png" alt="css val"></a>
+            </div>
+        </form>
+    </div>
 
 </body>
 

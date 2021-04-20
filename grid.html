@@ -89,6 +89,13 @@ Project #3: Conways Game of Life
       width: 30px;
       display: inline-block;
     }
+
+    #w3c{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
   </style>
   <script src="conway_grid.js"></script>
 </head>
@@ -97,7 +104,6 @@ Project #3: Conways Game of Life
 
   <h1>Conways Game of Life</h1>
   <section>
-    <h2></h2>
     <h3>Rules</h3>
     <ul>
       <li>If a cell is alive, and 2 or 3 of it's neighbors are also alive, the cell remains alive.</li>
@@ -112,10 +118,10 @@ Project #3: Conways Game of Life
       <li>Middle Mouse click on the grid toggles cell state</li>
     </ul>
     <button id="btn_clear" onclick="conway_clear()">Clear</button>
-    <button id="btn_reset" onclick="_reset_xor()">Reset(xor)</button>
-    <button id="btn_reset" onclick="_reset_osci()">Reset(osci)</button>
-    <button id="btn_reset" onclick="_reset_glider()">Reset(glider)</button>
-    <button id="btn_reset" onclick="_reset_monogram()">Reset(monogram)</button>
+    <button id="btn_reset1" onclick="_reset_xor()">Reset(xor)</button>
+    <button id="btn_reset2" onclick="_reset_osci()">Reset(osci)</button>
+    <button id="btn_reset3" onclick="_reset_glider()">Reset(glider)</button>
+    <button id="btn_reset4" onclick="_reset_monogram()">Reset(monogram)</button>
     <br>
     <button id="btn_adv1" onclick="advance_gen1()">Advance 1 step</button>
     <button id="btn_adv23" onclick="advance_gen23()">Advance 23 steps</button>
@@ -135,8 +141,13 @@ Project #3: Conways Game of Life
     <hr>
   </section>
   <section>
+    <h2>Board</h2>
     <div class="grid board" id="grid"></div>
   </section>
+  <div id="w3c">
+    <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
+    <a href=""><img src="images/css.png" alt="css val"></a>
+</div>
 </body>
 
 
