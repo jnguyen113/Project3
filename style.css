@@ -24,13 +24,6 @@ h1{
 
 body{
     font-family: monospace, serif;
-    /*
-    background: url('./images/background.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
-
     background: linear-gradient(53deg, #ffffff, #048ca3, #a916ec, #eed611);
     background-size: 800% 800%;
     -webkit-animation: gradient 7s ease infinite;
@@ -70,15 +63,14 @@ button{
     margin: 20px;
     width: 300px;
     height: 80px;
-    background-color: cyan;
-    border-radius: 8%;
-    color: rgba(105, 25, 209, 0.712);
+    background-color: rgba(0, 255, 136, 0.527);
     font-weight: bold;
     font-size: 15px;
+    color: white;
 }
 
 button:hover{
-    background-color: rgb(12, 211, 211);
+    background: linear-gradient(to bottom, rgb(5, 247, 255) 0%,#0011ff  100%); 
     transform: scale(1.2);
 }
 
