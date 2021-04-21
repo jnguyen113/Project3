@@ -58,7 +58,7 @@ function checkFields() {
             printError("signupUserErr", "Username already taken");
             error++;
         }
-		// check if new password is greater than 8 characters
+		// check if new password is less than 8 characters
         if (signupPass.length < 8) {
 			// alert user that the password is to short
             printError("signupPassErr", "Password is too short");
