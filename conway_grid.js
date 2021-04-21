@@ -37,6 +37,17 @@ function create_internal_grid() {
   }
 }
 
+/* Change play field size */
+function _grid_set(size){
+  conway_stop();
+  document.body.style.setProperty("--rowNum", parseInt(size));
+  document.body.style.setProperty("--colNum", parseInt(size));
+  board_size = parseInt(size);
+  grid = [];
+  create_internal_grid();
+  create_game_board();
+}
+
 /* Return how many pairs */
 function get_board_size() {
   return board_size;
@@ -98,14 +109,9 @@ function _reset_glider() {
   conway_draw();
 }
 
-/* Default reset, oscillator */
-function conway_reset() {
-  _reset_osci();
-  conway_draw();
-}
-
 /* Sets all cells to dead */
 function conway_clear() {
+  conway_stop();
   for (let row = 0; row < board_size; row++) {
     for (let col = 0; col < board_size; col++) {
       grid[row][col] = 0;
@@ -210,6 +216,7 @@ function advance_gen23() {
 
 function create_game_board() {
   var table = document.getElementById("grid");
+  table.innerHTML = "";
   table.onmousedown = setmousedown;
   table.onmouseup = setmouseup;
 

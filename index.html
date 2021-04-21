@@ -8,139 +8,21 @@ Project #3: Conways Game of Life
 
 <head>
   <title>Conway's Game of Life</title>
-  <style>
-    .center {
-      margin: auto;
-      width: 50%;
-      text-align: center;
-    }
-
-    .on {
-      background-color: #ffffff !important;
-      mix-blend-mode: multiply;
-    }
-
-    .off {
-      background-color: #000000;
-    }
-
-    .cell:hover {
-      background-color: #ffffff !important;
-      mix-blend-mode: normal;
-    }
-.rainbow-text {
-  background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.5px slateblue;
-}
-
-/*
-.board {
-    background-color: #000000;
-    border-color: #000000;
-    border-width: 2px;
-    border-style: solid;
-    border-spacing: 0;
-    float: left;
-    background-image: url(overlay.png);
-    background-size: cover;
-    filter: blur(1px) contrast(200%);
-    }
-
-.on {
-    mix-blend-mode: multiply;
-    filter: drop-shadow(0px 0px 10px white) invert(100%);
-}
-    */
-
-    .cell {
-      width: 4px;
-      height: 4px;
-      display: block;
-      background-color: #000000;
-    }
-
-    #board {
-      background-color: #000000;
-      border-color: #000000;
-      border-width: 2px;
-      border-style: solid;
-      border-spacing: 0;
-      float: left;
-      background-image: url(overlay.png);
-      background-size: cover;
-    }
-
-    #board tr,
-    #board td {
-      padding: 0;
-    }
-
-    span {
-      width: 30px;
-      display: inline-block;
-    }
-
-    #w3c{
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-
-  </style>
-  <script src="conway.js"></script>
+  <script src="auth.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body onload="setup_conway()">
-
-  <h1>Conways Game of Life</h1>
-  <section>
-    <h3 style="text-transform: uppercase;-webkit-text-stroke: 0.5px slateblue;">Rules</h3>
-    <ul>
-      <li class="rainbow-text"><b>If a cell is alive, and 2 or 3 of it's neighbors are also alive, the cell remains alive.</b></li>
-      <li class="rainbow-text"><b>If a cell is alive and it has more than 3 alive neighbors, it dies of overcrowding.</b></li>
-      <li class="rainbow-text"><b>If a cell is alive and it has fewer than 2 alive neighbors, it dies of loneliness.</b></li>
-      <li class="rainbow-text"><b>If a cell is dead and it has exactly 3 neighbors alive it becomes alive again.</b></li>
-    </ul>
-    <h3 style="text-transform: uppercase;-webkit-text-stroke: 0.5px slateblue;">Controls</h3>
-    <ul>
-      <li class="rainbow-text"><b>Left Mouse click on the grid turns cells alive</b></li>
-      <li class="rainbow-text"><b>Right Mouse click on the grid turns cells dead</b></li>
-      <li class="rainbow-text"><b>Middle Mouse click on the grid toggles cell state</b></li>
-    </ul>
-
-    <button id="btn_clear" onclick="conway_clear()">Clear</button>
-    <button id="btn_reset1" onclick="_reset_xor()">Reset(xor)</button>
-    <button id="btn_reset2" onclick="_reset_osci()">Reset(osci)</button>
-    <button id="btn_reset3" onclick="_reset_glider()">Reset(glider)</button>
-    <button id="btn_reset4" onclick="_reset_monogram()">Reset(monogram)</button>
-    <br>
-    <button id="btn_adv1" onclick="advance_gen1()">Advance 1 step</button>
-    <button id="btn_adv23" onclick="advance_gen23()">Advance 23 steps</button>
-    <button id="btn_anim1" onclick="conway_animate(1)">Animate(1)</button>
-    <button id="btn_anim5" onclick="conway_animate(5)">Animate(5)</button>
-    <button id="btn_anim15" onclick="conway_animate(15)">Animate(15)</button>
-    <button id="btn_anim30" onclick="conway_animate(30)">Animate(30)</button>
-    <button id="btn_stop" onclick="conway_stop()">Stop</button>
-    <br>
-    <button id="btn_1bit" onclick="conway_palette(false)">Use 1bit</button>
-    <button id="btn_pal" onclick="conway_palette(true)">Use Palette</button>
-    <span style="background-color:rgba(70,130,180,0.5)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.6)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.7)">&nbsp;</span><span style="background-color:rgba(70,130,180,0.8)">&nbsp;</span>
-    <span style="background-color:rgba(70,130,180,0.9)">&nbsp;</span><span style="background-color:rgba(70,130,180,1.0)">&nbsp;</span>
-    <br>
-    <button id="btn_save" onclick="conway_dump()">Save Scene</button>
-    <br><br>
-    <hr>
-  </section>
-  <section>
-    <h2>Board</h2>
-    <table id="board" class="bkg">
-    </table>
-    <div style="float:left; margin-left:1em;">
-      <textarea id="save"></textarea>
-    </div>
-  </section>
+<body class="gradient">
+  <h1>Conways Game of Life Registration</h1>
+  <div style="display: block; margin-left: auto; margin-right: auto;">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jy11eiaw.json" background="transparent" speed="1"
+      style="width: 300px; height: 300px; margin: auto;" loop autoplay></lottie-player>
+  </div>
+  <div id="regButton">
+    <button id="signup" onclick="signupClicked()">New User (Sign Up)</button>
+    <button id="login" onclick="loginClicked()">Existing User (Sign In)</button>
+  </div>
   <div id="w3c">
     <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
     <a href=""><img src="images/css.png" alt="css val"></a>

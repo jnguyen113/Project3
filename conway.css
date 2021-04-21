@@ -1,0 +1,54 @@
+:root {
+  --rowNum: 64;
+  --colNum: 64;
+ }
+
+.on {
+ background-color: #ffffff !important;
+ mix-blend-mode: multiply;
+}
+
+.off {
+ background-color: #000000;
+}
+
+.cell:hover {
+ background-color: #ffffff !important;
+ mix-blend-mode: normal;
+}
+
+.grid {
+ display: grid;
+ /* define the number of grid columns */
+ grid-template-columns: repeat(var(--rowNum), 1fr);
+}
+
+.cell {
+ width: 8px;
+ height: 8px;
+ display: block;
+ background-color: #000000;
+}
+
+.board {
+ background-color: #000000;
+ border-color: #000000;
+ border-width: 2px;
+ border-style: solid;
+ border-spacing: 0;
+ float: left;
+ background-image: url(overlay.png);
+ background-size: cover;
+ cursor: pointer;
+}
+
+span {
+ width: 30px;
+ display: inline-block;
+}
+
+#w3c {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+}

@@ -17,12 +17,12 @@ function printError(errID, displayMessage) {
 function register(){
     var signupUser = document.getElementById("signupUser").value;
     var signupPass = document.getElementById("signupPass").value;
-    
+
     var newUser = {
         'username': signupUser,
         'password': signupPass
     }
-    
+
     userInfo.push(newUser);
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
     window.location.href = "login.html"
@@ -71,12 +71,12 @@ function checkFields() {
     } else {
         //upon registering successfully launch login screen
         register();
-        
+
     }
 }
 
 
-//used https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage/55968743 
+//used https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage/55968743
 //to help with adding array of objects to local storage
 function authenticate(){
     var loginErr = document.getElementById('loginErr');
@@ -88,10 +88,9 @@ function authenticate(){
     //checking all values for correct pair of user
     for(var i = 0 ; i < userInfo.length;  i++){
         if(username == userInfo[i].username && password == userInfo[i].password){
-            window.location.href="index.html";
+            window.location.href="conway.html";
         }else{
             loginErr.innerHTML = "Username and Password mismatch";
         }
     }
-    
 }
