@@ -1,0 +1,68 @@
+<!--
+Hayden Kowalchuk
+WEB PROGRAMMING XLS Group N9 Spring Semester 2021 - CO.090.CSC.CSC4370.XLS.N9.20214
+Project #3: Conways Game of Life
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Conway's Game of Life</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="conway.css" type="text/css">
+  <meta name="viewport" content="width=device_display, initial-scale=1.0" />
+  <script src="conway_grid.js"></script>
+</head>
+
+<body onload="setup_conway()">
+  <h1 style="-webkit-text-stroke: 1px darkgray;">Conway's Game of Life</h1>
+  <div style="margin: auto;width:75%;text-align:center">
+    <div class="side">
+      <div class="bubble" id="rules">
+        <h3>Rules</h3>
+        <ul>
+          <li class="rainbow-text">If a cell is alive and 2 or 3 neighbors are alive, the cell remains alive.</li>
+          <li class="rainbow-text">If a cell is alive and has more than 3 alive neighbors, it dies of overcrowding.</li>
+          <li class="rainbow-text">If a cell is alive and has fewer than 2 alive neighbors, it dies of loneliness.</li>
+          <li class="rainbow-text">If a cell is dead and has exactly 3 neighbors alive it is resurrected.</li>
+        </ul>
+      </div>
+      <div class="bubble" id="controls">
+        <h3>Controls</h3>
+        <ul>
+          <li class="rainbow-text">Left Mouse click turns cells alive</li>
+          <li class="rainbow-text">Right Mouse click turns cells dead</li>
+          <li class="rainbow-text">Middle Mouse click toggles cell state</li>
+        </ul>
+      </div>
+    </div>
+    <div class="side">
+      <div class="bubble" style="flex: 1;">
+        <button id="btn_clear" onclick="conway_clear()">Reset</button>
+        <button id="btn_adv1" onclick="advance_gen1()">Advance 1 step</button>
+        <button id="btn_adv23" onclick="advance_gen23()">Advance 23 steps</button>
+        <button id="btn_anim30" onclick="conway_animate(30)">Start</button>
+        <button id="btn_stop" onclick="conway_stop()">Stop</button>
+        <br>
+        <button id="btn_reset2" onclick="_reset_osci()">Oscillator</button>
+        <button id="btn_reset3" onclick="_reset_glider()">Glider</button>
+        <button id="btn_reset4" onclick="_reset_monogram()">Monogram</button>
+        <button id="btn_reset2" onclick="_grid_set(16)">Small Grid</button>
+        <button id="btn_reset3" onclick="_grid_set(32)">Medium Grid</button>
+        <button id="btn_reset4" onclick="_grid_set(64)">Large Grid</button>
+        <br>
+      </div>
+    </div>
+    <div class="bubble fit">
+      <div class="grid board" id="grid"></div>
+    </div>
+  </div>
+  <div id="w3c">
+    <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
+    <a href=""><img src="images/css.png" alt="css val"></a>
+  </div>
+
+</body>
+
+</html>
