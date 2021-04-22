@@ -45,6 +45,7 @@ Project #3: Conways Game of Life
         <button id="btn_anim30" onclick="conway_animate(30)">Start</button>
         <button id="btn_stop" onclick="conway_stop()">Stop</button>
         <br>
+        <button id="btn_reset1" onclick="_reset_still()">Still Block</button>
         <button id="btn_reset2" onclick="_reset_osci()">Oscillator</button>
         <button id="btn_reset3" onclick="_reset_glider()">Glider</button>
         <button id="btn_reset4" onclick="_reset_monogram()">Monogram</button>
@@ -55,6 +56,7 @@ Project #3: Conways Game of Life
       </div>
     </div>
     <div class="bubble fit">
+      <h3 id="generation">Generation 0</h3>
       <div class="grid board" id="grid"></div>
     </div>
   </div>

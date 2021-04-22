@@ -18,6 +18,7 @@ var fps = 0;
 
 var grid = [];
 var match = [];
+var generation = 0;
 
 /* Palette info for alive cells, based on life */
 var pal = ["#f6f6f6", "rgba(70,130,180,0.5)", "rgba(70,130,180,0.6)", "rgba(70,130,180,0.7)", "rgba(70,130,180,0.8)", "rgba(70,130,180,0.8)", "rgba(70,130,180,1.0)"];
@@ -40,6 +41,7 @@ function create_internal_grid() {
 /* Change play field size */
 function _grid_set(size){
   conway_stop();
+  generation = 0;
   document.body.style.setProperty("--rowNum", parseInt(size));
   document.body.style.setProperty("--colNum", parseInt(size));
   board_size = parseInt(size);
@@ -59,6 +61,17 @@ function _reset_xor() {
       grid[row][col] = (row + col) % 2;
     }
   }
+  conway_draw();
+}
+
+function _reset_still() {
+  let x = 5;
+  let y = 4;
+  conway_clear();
+  grid[y][x] = 1;
+  grid[y][x+1] = 1;
+  grid[y+1][x+1] = 1;
+  grid[y+1][x] = 1;
   conway_draw();
 }
 
@@ -112,6 +125,9 @@ function _reset_glider() {
 /* Sets all cells to dead */
 function conway_clear() {
   conway_stop();
+  generation = 0;
+  update_generation();
+
   for (let row = 0; row < board_size; row++) {
     for (let col = 0; col < board_size; col++) {
       grid[row][col] = 0;
@@ -166,6 +182,11 @@ function count_neighbors(x, y) {
   return neighbors;
 }
 
+function update_generation(){
+  var gen_text = document.getElementById("generation");
+  gen_text.textContent = "Generation "+generation;
+}
+
 function advance_generation(steps) {
   for (let i = 0; i < steps; i++) {
     let next_grid = [];
@@ -201,6 +222,10 @@ function advance_generation(steps) {
     }
     /* update */
     grid = next_grid;
+
+    /* update header */
+    generation ++
+    update_generation();
   }
 }
 
@@ -361,7 +386,7 @@ function conway_dump() {
 function setup_conway() {
   create_internal_grid();
   create_game_board();
-  conway_reset();
+  conway_clear();
   conway_draw();
 
   document.getElementById("grid").addEventListener("contextmenu", function(e) {
